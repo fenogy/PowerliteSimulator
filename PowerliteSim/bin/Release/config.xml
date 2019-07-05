@@ -11,8 +11,8 @@
   <Vramp>300</Vramp>
   <SeederDelay>127.5</SeederDelay>
   <SyncDelay>193.5</SyncDelay>
-  <ShotCount>55602</ShotCount>
-  <SysShotCount>18470</SysShotCount>
-  <ComPort>6</ComPort>
+  <ShotCount>55907</ShotCount>
+  <SysShotCount>18676</SysShotCount>
+  <ComPort>1</ComPort>
   <BurstLength>34</BurstLength>
 </Configuration>
