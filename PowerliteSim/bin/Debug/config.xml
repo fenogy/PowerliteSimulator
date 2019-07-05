@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OscVoltage>1200</OscVoltage>
+  <AmpVoltage>1450</AmpVoltage>
+  <OscDelay>50</OscDelay>
+  <AmpDelay>55</AmpDelay>
+  <Qdelay>100</Qdelay>
+  <Qdivision>1</Qdivision>
+  <Prf>10</Prf>
+  <Qramp>60</Qramp>
+  <Vramp>300</Vramp>
+  <SeederDelay>10.5</SeederDelay>
+  <SyncDelay>6.0</SyncDelay>
+  <ShotCount>1336</ShotCount>
+  <SysShotCount>984</SysShotCount>
+  <ComPort>2</ComPort>
+</Configuration>

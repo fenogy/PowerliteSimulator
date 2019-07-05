@@ -1,0 +1,138 @@
+#region Copyright (c) ExcelTechnology Inc.
+
+#region Disclaimer
+//	ExcelTechnology Inc.
+//	This program is protected by copyright law and by international
+//	conventions. All licensing, renting, lending or copying (including
+//	for private use), and all other use of the program, which is not
+//	expressively permitted by ExcelTechnology Inc., is a violation of the rights
+//	of ExcelTechnology Inc.. Such violations will be reported to the
+//	appropriate authorities.
+//	Violation of any copyright is punishable by law and can lead to 
+//	imprisonment and liability to pay damages
+
+#endregion //Disclaimer
+
+#region Revision history
+
+#endregion //Revision history
+
+#endregion //Copyright (c) ExcelTechnology Inc.
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+
+
+namespace PowerliteSim
+{
+	/// <summary>
+	/// Summary description for Statemachine.
+	/// </summary>
+	public class Statemachine 
+	{
+		#region Enums
+
+		public enum Transitions
+		{
+			None =0,
+			Transition_0,
+			Transition_1,
+			Transition_2,
+			Transition_3,
+		}
+
+		public enum LaserModes
+		{
+			Stop = 0,
+			standby,
+			Flash,
+			QSwitch,
+		}
+
+		#endregion
+
+		#region Fields 
+
+		public int baudeRate;
+		public int dataBits;
+		public int stopBits;
+		public int parity;
+		public int port;
+
+        public bool isRightRotatingHg1 = false;
+        public bool isLeftRotatingHg1 = false;
+        public bool isRightRotatingHg2 = false;
+        public bool isLeftRotatingHg2 = false;
+		
+		private int pyroID = 1;
+		private int mode;
+		private int state;
+		private string stateDesc = "";
+
+		private int[] transition0; // sequence of modes for power on
+		private string[] transition0Desc; // Descriptions of modes for power on
+		private int[] transition1; // sequence of modes for 0 to 1
+		private string[] transition1Desc; // Descriptions of modes for 0 to 1
+		private int[] transition2; // sequence of modes for 1 to 2
+		private string[] transition2Desc; // Descriptions of modes for 1 to 2
+		private int[] transition3; // sequence of modes for 2 to 3
+		private string[] transition3Desc; // Descriptions of modes for 2 to 3
+
+		private Transitions currentTransition ;
+		private int currentTansIndex = 0;
+		private string lastErrorMsg = "Normal";
+
+		private int prf				= 0;
+		private int qRamp			= 60;
+        private int vRampVoltage    = 500;
+        private int vRamp           = 300;
+		private int outputPower		= 0;
+		private int pyroEnergy1		= 200;
+		private int pyroEnergy2		= 125;
+		private int pyroEnergy		= 0;
+		public int interLockWord	= 0; //prabash
+		private int intefacemode	= 3;
+		private int qDelay			= 0;
+		private int flDelay			= 0;
+		private int qDivision		= 1;
+		private int voltage			= 1200;
+		private int attenuator		= 0;
+		private ulong shotCount		= 0x0;
+        private ulong ampShotCount; // = 0x0
+		private ulong qShotCount	= 0x0;
+		private byte config			= 12;
+		private int headTemp		= 55;
+		private int xtlTemp			= 55;
+        private double waterTemp    = 40;
+        private int cgSetPoint      = 35;
+
+        private int oscHeadTempHL   = 55;
+        private int ampHead1TempHL  = 55;
+        private int ampHead2TempHL  = 55;
+
+		private int burstLength				= 1;
+		private int burstLengthRemaining	= 0;
+		private bool burstMode				= false;
+        private int primpPumpValue          = 0;
+        private int warmupValue = 0;
+
+        //newly added
+        private int oscVoltage = 1200;
+        private int ampVoltage = 1450;
+        private int oscDelay = 50;
+        private int ampDelay = 50;
+
+        private int rightRotation1 = 5;
+        private int rightRotation2 = 5;
+        private int leftRotation1 = 5;
+        private int leftRotation2 = 5;
+
+        private int rightRotation1stepcount = 0;
+        private int rightRotation2stepcount = 0;
+        private int leftRotation1stepcount = 0;
+        private int leftRotation2stepcount = 0;
+
+		public bool shutterStatus  = false;
+		private ArrayList errorList = new 

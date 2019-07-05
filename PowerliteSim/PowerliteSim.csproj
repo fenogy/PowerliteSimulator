@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D81FBA7-2BE8-47F1-A71D-8D4751F0AD4D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PowerliteSim</RootNamespace>
+    <AssemblyName>PowerliteSim</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="RS232Connector.cs" />
+    <Compile Include="RS232Settings.cs" />
+    <Compile Include="Statemachine.cs" />
+    <Compile Include="WpfPropertyGrid.cs" />
+    <Page Include="LaserSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LaserSettings.xaml.cs">
+      <DependentUpon>LaserSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Images\Waterpath.gif" />
+    <EmbeddedResource Include="Waterpath.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close_normal.png" />
+    <Resource Include="Images\close_Pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\conti_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\lowwaterlevel.png" />
+    <Resource Include="Images\normalwater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\coolantreserror.png" />
+    <Resource Include="Images\coolantresnormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nameplate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nameplateonhover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Settings.png" />
+    <Resource Include="Images\settings_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings2.png" />
+    <Resource Include="Images\settings2_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="UI\UI.csproj">
+      <Project>{840D758E-ABAB-4E65-9D5C-84A931A0BB11}</Project>
+      <Name>UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\lightening.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GreenRotator2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BlueRotator2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ampFire5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close_normal_c.png" />
+    <Resource Include="Images\close_Pressed_c.png" />
+    <Resource Include="Images\Settings_c.png" />
+    <Resource Include="Images\settings_pressed_c.png" />
+    <Resource Include="Images\start_c.png" />
+    <Resource Include="Images\start_pressed_c.png" />
+    <Resource Include="Images\stop_c.png" />
+    <Resource Include="Images\stop_pressed_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings2_pressed_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings2_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\expand2.png" />
+    <Resource Include="Images\expand2_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\compand2.png" />
+    <Resource Include="Images\compand2_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\defbenchpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shutteroff.png" />
+    <Resource Include="Images\shutteron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="emissionBench4.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
